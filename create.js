@@ -4,14 +4,13 @@ document
   stop.preventDefault();
   let formElements = document.querySelector("form.viewRecord").elements;
   console.log(formElements)
-  let postid=formElements["commentPostId"].value;
   let id =formElements["commentId"].value;
   let name=formElements["commentName"].value;
-  let name=formElements["commentSubject"].value;
+  let subject=formElements["commentSubject"].value;
   let data = {
-    "name":"food",
+    "name":name,
     "subject":{
-        "id":1
+        "id":subject
     }
 
 
