@@ -67,11 +67,12 @@ fetch('http://localhost:8080/task/read')
           let myDelButton = document.createElement("button");
           let myButtonValue1 = document.createTextNode("Delete a Task")
           myDelButton.className ="btn btn-success";
-          myViewButton.href="viewbyid.html?id="+commentRecord.id
-          myDelButton.onclick = function(){
-            delStudent(commentRecord.id);return false;
-          };
+          myDelButton.href="http://localhost:8080/task/delete"+commentRecord.id
           myDelButton.appendChild(myButtonValue1);
           newCellDelete.appendChild(myDelButton)
+          //myDelButton.onclick = function(){
+          //  delStudent(commentRecord.id);return false;
+          //};
+          
       }
   }
