@@ -7,11 +7,11 @@ document
   let postid=formElements["commentPostId"].value;
   let id =formElements["commentId"].value;
   let name=formElements["commentName"].value;
-
+  let name=formElements["commentSubject"].value;
   let data = {
-    "name":"Vinesh",
+    "name":"food",
     "subject":{
-        "id":5
+        "id":1
     }
 
 
