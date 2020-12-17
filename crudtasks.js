@@ -59,20 +59,27 @@ fetch('http://localhost:8080/task/read')
             let newCell = row.insertCell();
             let myViewButton = document.createElement("a");
             let myButtonValue = document.createTextNode("View/Edit a Task")
-            myViewButton.className ="btn btn-warning";
+            myViewButton.className ="btn btn-success";
             myViewButton.href="viewbyid.html?id="+commentRecord.id
             myViewButton.appendChild(myButtonValue);
             newCell.appendChild(myViewButton)
           let newCellDelete = row.insertCell();
           let myDelButton = document.createElement("button");
           let myButtonValue1 = document.createTextNode("Delete a Task")
-          myDelButton.className ="btn btn-success";
-          myDelButton.href="http://localhost:8080/task/delete"+commentRecord.id
-          myDelButton.appendChild(myButtonValue1);
-          newCellDelete.appendChild(myDelButton)
-          //myDelButton.onclick = function(){
-          //  delStudent(commentRecord.id);return false;
-          //};
+          myDelButton.className ="btn btn-danger";
+         myDelButton.appendChild(myButtonValue1);
+          newCellDelete.appendChild(myDelButton) 
+          myDelButton.onclick = function(){
+                return fetch("http://localhost:8080/task/delete" + '/' + commentRecord.id, {
+                  method: 'delete'
+                }).then(response =>
+                  response.json().then(json => {
+                    return json;
+                  })
+                );
+              
+              
+          };
           
       }
   }
