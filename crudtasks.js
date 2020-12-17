@@ -70,15 +70,19 @@ fetch('http://localhost:8080/task/read')
          myDelButton.appendChild(myButtonValue1);
           newCellDelete.appendChild(myDelButton) 
           myDelButton.onclick = function(){
+
                 return fetch("http://localhost:8080/task/delete" + '/' + commentRecord.id, {
                   method: 'delete'
                 }).then(response =>
                   response.json().then(json => {
                     return json;
                   })
+
+                  
+                ).then(window.location.reload()
                 );
-              
-              
+                
+                
           };
           
       }
